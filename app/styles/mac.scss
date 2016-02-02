@@ -1,0 +1,86 @@
+body {
+	background-color: #c4e4f3;
+}
+
+.jumbotron {
+	.header-text {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	img {
+		width: 150px;
+		display: inline-block;
+		vertical-align: middle;
+		padding-right: 20px;
+	}
+	button {
+		margin-top: 10px;
+		margin-left: 150px;
+	}
+	
+}
+
+.table {
+	background-color: white;
+	text-align: center;
+	border-radius: 10px;
+
+	th {
+		text-align: center;
+		font-size: 1.5em;
+	}
+
+	tr {
+		height: 50px;
+	}
+
+	td {
+		h4 {
+			vertical-align: middle;
+		}
+	}
+
+	td[data-toggle=popover]:hover {
+		background-color: #eeeeee;
+		cursor: pointer;
+	}
+}
+
+.modal {
+	.modal-header {
+		background-color: #eeeeee;
+	}
+
+	h4 {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	img {
+		width: 50px;
+		display: inline-block;
+		vertical-align: middle;
+		padding-right: 10px;
+	}
+
+	small {
+		float: left;
+		vertical-align: bottom;
+	}
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    button {
+		margin-left: 0px;
+    }
+  }
+}

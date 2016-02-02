@@ -1,0 +1,143 @@
+<div ng-controller="MainCtrl as mc">
+  <div class="jumbotron">
+    <img src="images/DCTLogo-invis-big.png" alt="Welcome to Digital and Creative Talent">
+    <div class="header-text">
+      <h1>MPC Availability Chart</h1>
+      <p class="lead">
+        Looking for great candidates?  The MAC is at your service.<br>
+        Click on any name below to learn more about a candidate.
+      </p>
+    </div>
+    <p>
+      <button class="btn btn-success" data-toggle="modal" data-target="#learnMore">
+        Click to Learn More About the MAC
+      </button>
+    </p>
+  </div>
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="learnMore">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <img src="images/DCTLogo-invis-big.png" alt="Digital and Creative Talent Logo"><h4 class="modal-title">Learn More About the MAC<br>
+            <small>MPC Availability Chart</small>
+          </h4>
+          </div>
+          <div class="modal-body">
+            <h3>What Is the MAC?</h3>
+            <p>The MPC (Most Placeable Candidate) Availability Chart - or <strong>"MAC"</strong> - is a list of 3 candidates of ours currently on the market for each of the top 10 Priority Roles on the market today.  They range in seniority from Junior to Senior.</p>
+
+            <h3>How Do I Use the MAC?</h3>
+            <p>You can click on any name on the MAC to see a short summary of the candidate's background - their current title, highlights of their skillset, and a fun fact.  If you see a candidate you're interested in, click their "Learn More!" button to contact us for further information.</p>
+            
+            <h3>I Don't See the Role I'm Searching For!</h3>
+            <p>If you like the candidates, but don't see the specific role you want to fill, you can contact us here and we'd be more than happy to help you with your search!</p>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="candidateLearnMore">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <img src="images/DCTLogo-invis-big.png" alt="Digital and Creative Talent Logo"><h4 class="modal-title">Request More Information<br>
+            <small>Let us know who you'd like to learn more about!</small>
+          </h4>
+          </div>
+          <div class="modal-body">
+            <form>
+
+              <div class="form-group">
+                <label for="fullName">Name*</label>
+                <input class="form-control" id="fullName" type="text" placeholder="Enter Your Name"
+                  ng-model="mc.message.name"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="emailAddress">Email*</label>
+                <input class="form-control" id="emailAddress" type="email" placeholder="Enter Your Email" 
+                  ng-model="mc.message.email"
+                  required>
+              </div>
+              <div class="form-group">
+                <label for="phoneNumber">Phone Number</labeL>
+                <input class="form-control" id="phoneNumber" type="phone" placeholder="Enter Your Phone Number"
+                  ng-model="mc.message.phoneNumber">
+              </div>
+              <div class="form-group">
+                <label for="moreInfo">Comments*</label>
+                <textarea class="form-control" rows"3" 
+                  ng-model="mc.message.body" 
+                  required>
+                </textarea>
+              </div>
+
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <small>We hate spam and promise to keep your information safe.</small>
+            <button type="button" class="btn btn-success" data-dismiss="modal">Send</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+<div id="popoverContainer" popover-init></div>
+
+  <div>    <!-- Find the code for this under the "directives" directory -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-md-3">Role</th>
+          <th class="col-md-3">Junior</th>
+          <th class="col-md-3">Mid</th>
+          <th class="col-md-3">Senior</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="entry in mc.entries">
+        <td><h4>{{entry.role}}</h4></td>
+        <td ng-repeat="mpc in entry.seniority_levels" 
+            data-toggle="popover" 
+            title="{{mpc.name}}">
+            <strong>{{mpc.name}}</strong><br>
+            {{mpc.usp}}
+        </td>
+      </tr>
+
+      <!-- <tr>
+      <tr>
+        <td>CTO</td>
+        <td>John</td><td>Paul</td><td>Jack</td>
+      </tr>
+      <tr>
+        <td>Software Architect</td>
+        <td>John</td><td>Paul</td><td>Jack</td>
+      </tr>
+      <tr>
+        <td>Development Manager</td>
+        <td>John</td><td>Paul</td><td>Jack</td>
+      </tr>
+      <tr>
+        <td>Senior Software Engineer</td>
+        <td>John</td><td>Paul</td><td>Jack</td>
+      </tr>
+      <tr>
+        <td>Project Manager</td>
+        <td>John</td><td>Paul</td><td>Jack</td>
+      </tr> -->
+
+
+      </tbody>
+    </table>
+  </div>
+</div>
